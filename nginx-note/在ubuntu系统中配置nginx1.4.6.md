@@ -1,7 +1,7 @@
 配置一个站点的https访问
 80配置使用默认的即可
 ```
-# 80 端口配置 并且强制重定向到https
+# 80 端口配置 并且强制重定向到https
 server {
         listen 80;
         server_name localhost;
