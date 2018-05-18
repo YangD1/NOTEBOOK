@@ -152,6 +152,7 @@ Nginx 的日志目录
 `nginx -v`查看nginx的版本
 
 安装编译参数
+
 ![](images/9055EAE7-4135-4286-8B3C-4CA869046D12.png)
 
 ![](images/70FDE2BA-80E3-4ED5-ACE8-DEAC6CC24639.png)
@@ -163,20 +164,26 @@ Nginx 的日志目录
 ![](images/274C85E3-9DB3-4DFF-A676-ADCB64FCE98D.png)
 
 /etc/nginx/nginx.conf (默认配置):
+
 ![](images/469B17C8-5940-4E46-A5B2-703420C7A436.png)
 
 ![](images/C2341ABD-190E-4AD2-9893-B157645AE8F4.png)
 
 ![](images/6D160A7A-1CD1-4BB3-8C7E-EBFC4A683064.png)
+
 Tip：可以在 error_page 配置中配置更多的错误类型，例如 404 共同使用同一个错误页面，错误页面的路径配置在 location 中定义  
 
 ![](images/CA9F55D1-8803-4C15-B6E2-3BF27514B6BD.png)
+
 一个http有多个 server 一个server 有多个location
 
 ### HTTP 请求
 ![](images/EEA78E99-8227-4E06-BC05-64AE9D059687.png)
+
 request - 包含请求行，请求头部，请求数据
+
 response - 包括状态航，消息报头，相应正文
+
 在curl 中展示request 和 response 信息
 ```
 $ curl -v https://localhost > /dev/null
@@ -186,33 +193,42 @@ $ curl -v https://localhost > /dev/null
 
 ### Nginx 日志类型
 默认的日志文件和目录位置
+
 ![](images/A17C42BA-161D-443D-AE01-2BA7A9632FF4.png)
+
 上面的位置也可以根据 /etc/nginx/nginx.conf 文件中定义的路径来查找：
+
 ![](images/E6B38B32-F70C-46C4-A813-7EE8735513A1.png)
 `error_log` 配置后面的 warn 代表记录的错误的错误级别。
+
 `access_log` 配置后面的 main 代表 `log_format` 声明的 `main`格式来进行记录 
 
 `error.log`   -   主要记录 nginx http 请求错误和 nginx 错误的状态
+
 `access_log` - 记录 nginx 请求的访问状态
 日志实现基于 log_format 配置：
+
 ![](images/CBC8A1EC-818E-4C43-BB25-69E7EEC00FBD.png)
 
 Nginx 变量：
-HTTP 请求变量  - arg_PARAMETER , http_HEADER , sent_http_HEADER 
-内置变量 - Nginx 内置的
-自定义变量 - 自己定义
+* HTTP 请求变量  - arg_PARAMETER , http_HEADER , sent_http_HEADER 
+* 内置变量 - Nginx 内置的
+* 自定义变量 - 自己定义
 
 具体的 log 内置变量也可参考：
 [Logging to syslog](http://nginx.org/en/docs/syslog.html)
+
 access_log: http://nginx.org/en/docs/http/ngx_http_log_module.html#access_log
 
 ### Nginx 模块
 模块分类：
-1. Nginx 官方模块
-2. 第三方模块
+* Nginx 官方模块
+* 第三方模块
+
 Tip:  nginx -V 查看具体的nginx信息
-典型模块
+#### 典型模块
 ![](images/EF5713BF-85E4-4A2E-97A2-DCE29731E417.png)
+
 使用如上模块功能可以编辑 conf.d 目录下的配置文件添加一条 location：
 ```
 location /mystatus {
@@ -261,10 +277,13 @@ location / {
 ```
 
 ### Nginx 的请求限制
-连接频率限制  - limit_conn_module
-请求频率限制  - limit_req_module
+* 连接频率限制  - limit_conn_module
+* 请求频率限制  - limit_req_module
+
 ![](images/3A796EF2-B83D-4CE7-88AA-33214C40E464.png)
+
 HTTP 协议建立在 TCP 协议之上，先要进行 TCP 的三次握手。
+
 ![](images/25D45A58-7BFE-40CD-8A9D-7D505B7FA95E.png)
 ```
 # 连接限制
@@ -290,8 +309,9 @@ eg：
 
 
 ### Nginx 的访问控制
-基于 IP 的访问控制 - http_access_module
-基于用户的信任登陆 - http_auth_basic_module
+* 基于 IP 的访问控制 - http_access_module
+
+* 基于用户的信任登陆 - http_auth_basic_module
 
 #### http_access_module
 ```
@@ -308,10 +328,15 @@ Context:http,server,location,limit_except
 ```
 eg:
 ![](images/D1E76EFA-3DBB-47A7-8E3B-0E6AAFC1B317.png)
+
 原理（remote_addr 变量是请求的ip）：
+
 ![](images/6EEA5700-9800-40AB-B4B9-6DA98BFC3A50.png)
+
 （只能通过 $remote_addr 控制信任，不是很准确容易产生问题或者绕过验证）
+
 另一种方案：
+
 ![](images/5E40D9B0-DC15-4AEA-B4D6-402C4E8C5CA8.png)
 ```
 # http_x_forwarded_for(可以被修改)
