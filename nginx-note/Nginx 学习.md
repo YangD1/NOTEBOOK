@@ -375,5 +375,5 @@ Re-type new password:...
 2. Nginx 和 LDAP 打通，利用 nginx-auth-ldap 模块（yum或者apt安装的包没有带这个模块）
 
 
-### 来自我的bear笔记
-材料：学习所用环境来自 [自建docker](https://github.com/gunarua/test-build-dockerfile)
+### FROM: MyBear
+材料：学习所用环境来自 [自建docker](https://github.com/gunarua/test-build-dockerfile)
