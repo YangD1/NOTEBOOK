@@ -3,12 +3,12 @@
 npm 是 Node 的模块管理器
 
 ```
-    npm install
+npm install
 ```
 
 `npm install` 命令用来安装模块到 `node_modules` 目录
 ```
-    npm install <packageName>
+npm install <packageName>
 ```
 
 安装之前，`node_modules` 目录中是否已经存在指定模块。如果存在，就不再重新安装了，即使远程仓库已经又了一个新版本，也是如此。
