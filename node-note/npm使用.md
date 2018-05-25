@@ -6,7 +6,7 @@ npm 是 Node 的模块管理器
 npm install
 ```
 
-`npm install` 命令用来安装模块到 `node_modules` 目录
+`npm install` 命令用来安装模块到 `node_modules` 目录
 ```
 npm install <packageName>
 ```
