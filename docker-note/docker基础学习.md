@@ -1,7 +1,7 @@
 # Docker 入门教程
 [Docker入门教程-慕课网](https://www.imooc.com/learn/867)
 Docker和虚拟机的区别
-[image:images/E52544D5-0B8C-40EA-BCE0-974B170F426A.png]
+![](images/E52544D5-0B8C-40EA-BCE0-974B170F426A.png)
 
 
 ### 安装
@@ -10,7 +10,7 @@ linux 运行 `sudo wget -qO- https://get.docker.com | sh` 来通过shell自动�
 windows 安装和mac一样从官网获取对应安装程序安装即可
 
 ### docker 的架构
-[image:images/4CA0FA1D-5E61-414E-B03A-67B6E46CF72B.png]
+![](images/4CA0FA1D-5E61-414E-B03A-67B6E46CF72B.png)
 
 
 ### 用法
@@ -29,7 +29,7 @@ $ docker run -p 8080:80 -d daocloud.io/nginx
 ```
 
 eg1 结果访问浏览器：
-[image:images/61F2E770-D628-4A17-8330-410CC262CA09.png]
+![](images/61F2E770-D628-4A17-8330-410CC262CA09.png)
 
 ```
 # 将文件拷贝进指定容器的指定目录( 例：/usr/share/nginx/html )
@@ -64,8 +64,8 @@ $ docker cp ./ containerID:./
 ```
 
 用法图表：
-[image:images/2A4CF6E9-9C27-4974-AF63-82869B55EF3E.png]
-[image:images/F5923176-98F4-4CEA-95D6-2C415CE02371.png]
+![](images/2A4CF6E9-9C27-4974-AF63-82869B55EF3E.png)
+![](images/F5923176-98F4-4CEA-95D6-2C415CE02371.png)
 
 
 ### Dockerfile
@@ -77,15 +77,15 @@ $ docker cp ./ containerID:./
 ```
 
 dockerfile 语法图列
-[image:images/6ECA0935-36C3-4316-B891-55591F382646.png]
+![](image:images/6ECA0935-36C3-4316-B891-55591F382646.png)
 
-[image:images/821A603E-9C43-4355-B3BA-F98C3E691CE3.png]
+![](image:images/821A603E-9C43-4355-B3BA-F98C3E691CE3.png)
 
 ### Volume
 提供独立于容器之外的持久化存储
 #### 本地目录挂载进容器
 1. `$ docker run -d --name nginx -v /usr/share/nginx/html nginx` 挂载容器内部-v后面的路径，本地的映射路径使用`docker inspect containerName`打印信息的 Mounts 的 Source 路径就是本地路径。在mac上，这个路径在一个虚拟层中，所以直接访问是不存在的。mac使用
-[image:images/4C3C39F1-4512-4993-BF21-8DD2F4B88E30.png]
+![](images/4C3C39F1-4512-4993-BF21-8DD2F4B88E30.png)
 进入后即可访问Source所示的本地路径。
 
 ```
@@ -110,10 +110,10 @@ $ docker run -it  --volumes-from data_container ubuntu /bin/bash
 用例：比如以一个容器为数据容器被多个容器挂载，就可以实现数据共享
 
 ### 镜像仓库(Registry)
-[image:images/F41203B4-A738-419B-B93F-1C555664335F.png]
+![](image:images/F41203B4-A738-419B-B93F-1C555664335F.png)
 
 术语：
-[image:images/0F6D8A9C-E839-4963-9A31-59465306AA3B.png]
+![](image:images/0F6D8A9C-E839-4963-9A31-59465306AA3B.png)
 
 用法：
 ```
