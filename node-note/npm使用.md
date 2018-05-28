@@ -17,6 +17,10 @@ npm install <packageName>
 ```
     npm install <packageName> --force
 ```
+`install` 后面可以跟的参数
+- `-g`:全局安装
+- `--save`:将保存配置信息至 `package.json`
+- `-dev`:将保存`package.json`的`devDependencies`节点，不指定-dev将保存至`dependencies`节点
 ### npm update
 
 更新已安装模块
