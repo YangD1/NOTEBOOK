@@ -180,3 +180,28 @@ OK
 5) "val3"
 6) "12.199999999999999"
 ```
+
+### PHP 操作 Redis
+[phpredis项目,包含文档和安装指南信息等等](https://github.com/phpredis/phpredis)
+```
+# 查看有没有安装PHPredis扩展
+$ php -m
+# 安装phpize和php-config工具
+$ yum install php-devel 
+# 假设已经源码编译安装完成，查看php配置文件位置
+$ php --ini
+# 修改 /etc/php.ini 在配置文件最下面添加 `extension=redis.so`
+# 然后查看`php -m `是否有`redis`扩展
+```
+Redis 类的命名空间是根 `\Redis`（实际开发中找不到redis类的原因）
+
+phpredis 的命令和参数基本和redis.io中的实际命令对应
+
+```
+<?php
+# php连接上面创建好的7200端口的redis
+$redis = new \Redis();
+$redis->connect('127.0.0.1',7200);
+```
+具体的php操作redis的原理和上面的redis操作一样，具体的redis对象方法，参考项目的[readme](https://github.com/phpredis/phpredis/blob/develop/README.markdown)文件
+
