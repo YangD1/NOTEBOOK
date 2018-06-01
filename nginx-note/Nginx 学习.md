@@ -374,5 +374,65 @@ Re-type new password:...
 1. Nginx 结合 LUA 实现高效验证
 2. Nginx 和 LDAP 打通，利用 nginx-auth-ldap 模块（yum或者apt安装的包没有带这个模块）
 
+## 进阶学习（基于Nginx的中间件架构）
+## 静态资源web服务
+### 配置语法-文件读取
+```
+Syntax: sendfile on | off;
+Default: sendfile off;
+Context: http,server,location,if in location
+```
+### 配置语法-tcp_nopush
+作用: sendfile 开启的情况下，提高网络包的传输效率
+```
+Syntax: tcp_nopush on | off;
+Default: tcp_nopush off;
+Context: http,server,location
+```
+### 配置语法-tcp_nodelay
+作用：keepalive 连接下，提高网络包的传输实时性
+```
+Syntax: tcp_nodelay on | off;
+Default: tcp_nodelay off;
+Context: http,server,location
+```
+
+### 配置语法-压缩
+```
+Syntax: gzip on | off;
+Default: gzip off;
+Context: http,server,location,if in location
+```
+
+### 配置语法-压缩等级
+注意：压缩登记越高对性能影响越大
+```
+Syntax: gzip_comp_level level;
+Default: gzip_comp_level 1;
+Context: http,server,location
+```
+
+### 配置语法-压缩协议版本
+默认：1.1
+```
+Syntax: gzip_http_version 1.0 | 1.1;
+Default: gzip_http_version 1.1;
+Context: http,server,location
+```
+### 扩展Nginx压缩模块
+- `http_gzip_static_module` - 预读 gzip 功能
+- `http_gunzip_module` - 应用支持 gunzip 的压缩方式
+
+## 浏览器缓存
+- HTTP 协议定义的缓存机制（如：Expires(1.0); Cache-control(1.1) 等）
+
+浏览器无缓存：
+![](images/WX20180601-172117.png)
+浏览器有缓存：
+![](images/WX20180601-172355.png)
+校验过期机制：
+![](images/WX20180601-172543.png)
+流程：
+![](images/WX20180601-173016.png)
 
 > 材料：学习所用环境来自 [自建docker](https://github.com/gunarua/test-build-dockerfile)
