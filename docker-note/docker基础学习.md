@@ -13,8 +13,19 @@ windows 安装和mac一样从官网获取对应安装程序安装即可
 ![](images/4CA0FA1D-5E61-414E-B03A-67B6E46CF72B.png)
 
 
+### docker 服务
+```
+# service 启动 docker 服务
+$ service docker start
+# systemctl 命令 启动 docker 服务
+systemctl start docker
+```
+
 ### 用法
 ```
+# 查找官方仓库中的镜像
+$ docker search 
+
 # 拉取并运行ubuntu容器
 $ docker run ubuntu 
 
@@ -110,10 +121,10 @@ $ docker run -it  --volumes-from data_container ubuntu /bin/bash
 用例：比如以一个容器为数据容器被多个容器挂载，就可以实现数据共享
 
 ### 镜像仓库(Registry)
-![](image:images/F41203B4-A738-419B-B93F-1C555664335F.png)
+![](images/F41203B4-A738-419B-B93F-1C555664335F.png)
 
 术语：
-![](image:images/0F6D8A9C-E839-4963-9A31-59465306AA3B.png)
+![](images/0F6D8A9C-E839-4963-9A31-59465306AA3B.png)
 
 用法：
 ```
