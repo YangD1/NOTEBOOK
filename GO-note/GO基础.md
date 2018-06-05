@@ -134,6 +134,7 @@ import (
 - 类型所占存储大小
 
 [GO 语言数据类型](http://www.runoob.com/go/go-data-types.html)
+
 ![](images/WX20180605-154154.png)
 #### 数字类型
 ![](images/WX20180605-154322.png)
