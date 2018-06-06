@@ -154,7 +154,7 @@ import (
 ### GO 数据类型 ----- 类型存储大小 
 ![](images/WX20180605-160027.png)
 
-### GO ----- 变量和常量
+### GO ----- 变量
 - 单个变量声明和赋d
     1. 变量的声明格式：var <变量名称> [变量类型]
     2. 变量的赋值格式：<变量名称> = <值，表达式，函数等>
@@ -177,3 +177,50 @@ import (
 
 - 大写字母开头的变量是可导出的，也就是其他包可以读取的，是公用变量
 - 小写字母开头的就是不可导出的，是私有变量
+
+### GO ----- 常量
+- 常量定义从形式上可分为显式和隐式：
+    - 显式：const identifier [type] = value
+    - 隐式：const identifier = value (通常叫无类型常量)
+- 常量可以使用内置表达式定义，例如：len(),unsafe.Sizeof() 等
+- 常量范围目前只支持布尔型，数字型（整数型，浮点型和复数）和字符串型
+
+### 特殊常量 iota 
+- iota 在 const 关键字出现时将被重置为 0
+- const 中每**新增一行**常量声明将使 iota 计数一次
+- iota 常见使用法
+  1. 跳值使用法
+  2. 插队使用法
+  3. 表达式隐式使用法
+  4. 单行使用法
+
+跳值的使用：
+```GO
+package main
+import "fmt"
+const(
+    a = iota
+    b = iota
+    _
+    _
+    c = iota
+)
+func main(){
+    fmt.Print(a:"a的常量值为：")
+    fmt.Print(a)
+    fmt.Print(a:"\n")
+    fmt.Print(a:"b的常量值为：")
+    fmt.Print(b)
+    fmt.Print(a:"\n")
+    fmt.Print(a:"c的常量值为：")
+    fmt.Print(c)
+}
+
+/*
+0
+1
+3
+*/
+```
+
+
