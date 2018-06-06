@@ -223,4 +223,163 @@ func main(){
 */
 ```
 
+### 算数运算符
+- `+` 添加两个操作数 `A+B`
+- `-` 从第一个操作数中减去第二个操作数 `A-B`
+- `*` 将两个操作数相乘 `A*B`
+- `/` 将分子除以坟墓 `B/A`
+- `%` 模数运算符，整数除法的余数 `B%A`
+- `++` 增加(递增)运算符，将整数值加一 `A++` (只能放在后面++)
+- `--` 相减(递减)运算符，将整数值减一 `A--` (只能放在后面--)
+
+### 关系运算符
+跟别的语言差不多...
+![](images/WX20180606-112616.png)
+
+### 逻辑运算符
+跟别的语言差不多...
+![](images/WX20180606-112629.png)
+
+### 按位运算符
+![](images/WX20180606-112852.png)
+
+![](images/WX20180606-113325.png)
+
+### 赋值运算符
+![](images/WX20180606-113430.png)
+
+## 控制语句
+- 条件语句 `if`,`if...else`,嵌套 `if`，`else if`
+- 选择语句 `switch` ,`select` ;
+- 循环语句 `for` (没有`foreach`)
+- 控制语句中使用到的关键字 `goto`,`break`,`continue`
+
+### 条件语句
+嵌套使用
+```GO
+package main
+
+import(
+    "fmt"
+)
+
+func main(){
+    a := 0
+    if a>1{
+        fmt.Print("a是大于1的")
+        fmt.Print("\n")
+        if a<4 {
+            fmt.Print("a是小于4的")
+        }
+    }else if a<1{
+        fmt.Print("a是小于1的")
+    }
+}
+```
+
+### 选择语句
+![](images/WX20180606-134741.png)
+```GO
+package main
+
+import(
+    "fmt"
+)
+
+func main(){
+        a := 5
+        switch a{
+            case 1:
+                fmt.Print("变量等于1")
+            case 2:
+                fmt.Print("变量等于2")
+            case 3:
+                fmt.Print("变量等于3")
+            default:
+                fmt.Print("都不满足")
+        }
+}
+```
+
+### 循环语句
+![](images/WX20180606-140354.png)
+```GO
+package main
+
+import(
+    "fmt"
+)
+
+func main(){
+    for i:=1;i<10;i++{
+        fmt.Print("GOGOGO")
+        fmt.Print(i)
+        fmt.Print("\n")
+    }
+}
+
+/*
+GOGOGO1
+GOGOGO2
+GOGOGO3
+GOGOGO4
+GOGOGO5
+GOGOGO6
+GOGOGO7
+GOGOGO8
+GOGOGO9
+*/
+```
+
+```GO
+package main
+
+import(
+    "fmt"
+)
+
+func main(){
+
+    a := []string{"香蕉","苹果","雪梨"}
+    // 这里的 _ 代替了 key，如果要输出 key 替换 _ 为变量名即可
+    for _,value:=range a{
+        fmt.Print("value的值为：")
+        fmt.Print(value)
+        fmt.Print("\n")
+    }
+
+}
+ 
+/*
+value的值为：香蕉
+value的值为：苹果
+value的值为：雪梨
+*/
+```
+
+### 控制语句
+![](images/WX20180606-141750.png)
+
+goto
+```GO
+package main
+
+import(
+    "fmt"
+)
+
+func main(){
+
+    goto One
+    fmt.Print("中间代码块")
+    One:
+        fmt.Print("这里是代码块一")
+
+}
+
+/*
+这里是代码块一
+*/
+```
+Happly Hacking...
 
