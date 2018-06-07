@@ -34,7 +34,24 @@ $ setenforce 0
 ```
 $ vim /etc/yum.repos.d/nginx.repo
 ```
-
+nginx.repo:
+```
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/OS/OSRELEASE/$basearch/
+gpgcheck=0
+enabled=1
+```
+```
+# 查看相关源
+$ yum list |grep nginx
+# 安装nginx
+$ yum install nginx
+# 查看版本
+$ nginx -v
+# 查看所安装的参数
+$ nginx -V
+```
 
 ## 基础篇
 ### Nginx 的中间件架构
