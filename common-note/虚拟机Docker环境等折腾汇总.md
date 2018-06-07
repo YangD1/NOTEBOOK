@@ -28,3 +28,4 @@ $ sudo mount /dev/sr0 /media/VBoxGuestAdditions
 $ sudo VBoxLinuxAdditions.run
 # 根据提示安装缺失的组件,之后有关于window system 错误的时候忽略即可
 ```
+> 附：[virtualbox 官方工具下载列表](http://download.virtualbox.org/virtualbox/)
