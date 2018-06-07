@@ -21,6 +21,21 @@ $ getenforce
 $ setenforce 0
 ```
 
+## Nginx 安装
+版本：
+- Mainline version - 开发版
+- Stable version - 稳定版
+- Legacy version - 历史版本
+
+[具体查看](http://nginx.org/en/download.html)
+
+根据官网给出的yum源进行添加
+[参考源地址](http://nginx.org/en/linux_packages.html#stable)
+```
+$ vim /etc/yum.repos.d/nginx.repo
+```
+
+
 ## 基础篇
 ### Nginx 的中间件架构
 ![](images/0584FBCF-E253-4A1E-AB1E-D075D88B9560.png)
