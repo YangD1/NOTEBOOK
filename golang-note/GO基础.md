@@ -1,4 +1,4 @@
-来源：[慕课网课程](https://www.imooc.com/learn/968)
+参考：[慕课网课程](https://www.imooc.com/learn/968)
 ### GO 基础语法
 Go 保留的关键字只有25个：
 
@@ -169,7 +169,7 @@ import (
     ```
 - 同一行声明多个变量和赋值：var a,b,c int =1,2,3 或者 a,b : =1,2
 - 全局变量的声明必须使用var关键词，局部变量则可以省略
-- 特殊变量下划线 "_"
+- 特殊变量下划线 "_"（匿名变量）
 
 - GO 中不存在隐式转换，类型转换必须是显式的
 - 类型转换只能发生在两种兼容类型之间
@@ -206,19 +206,20 @@ const(
     c = iota
 )
 func main(){
-    fmt.Print(a:"a的常量值为：")
-    fmt.Print(a)
-    fmt.Print(a:"\n")
-    fmt.Print(a:"b的常量值为：")
-    fmt.Print(b)
-    fmt.Print(a:"\n")
-    fmt.Print(a:"c的常量值为：")
-    fmt.Print(c)
+    fmt.Println("a的常量值为：")
+    fmt.Println(a)
+    fmt.Println("b的常量值为：")
+    fmt.Println(b)
+    fmt.Println("c的常量值为：")
+    fmt.Println(c)
 }
 
 /*
+a的常量值为：
 0
+b的常量值为：
 1
+c的常量值为：
 3
 */
 ```
