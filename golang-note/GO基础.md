@@ -149,6 +149,46 @@ import (
 
 ![](images/WX20180605-154525.png)
 
+Go 中不允许不同类型之间的混合使用，但是对于常量的类型限制非常少，因此允许常量之间的混合使用。
+```GO
+package main
+
+func main() {
+	var a int
+	var b int32
+	a = 15
+	b = a + a	 // 编译错误
+	b = b + 5    // 因为 5 是常量，所以可以通过编译
+}
+```
+
+```GO
+package main
+
+import "fmt"
+
+func main() {
+	var n int16 = 34
+	var m int32
+	// compiler error: cannot use n (type int16) as type int32 in assignment
+	//m = n
+	m = int32(n)
+
+	fmt.Printf("32 bit int is: %d\n", m)
+	fmt.Printf("16 bit int is: %d\n", n)
+}
+/*
+32 bit int is: 34
+16 bit int is: 34
+*/
+```
+### 格式化说明符
+在格式化字符串里，`%d` 用于格式化整数（`%x` 和 `%X` 用于格式化 16 进制表示的数字）,`%g` 用于格式化浮点型 (`%f` 输出浮点数，`%e` 输出科学计数表示法)，`%0d` 用于规定输出定长的整数，其中开头的数字 0 是必须的。
+
+`%n.mg` 用于表示数字 n 并精确到小数点后 m 位，出了使用 g 之外，还可以使用 e 或者 f，例如格式化字符串 `%5.2e` 来输出 3.4 的结果为 `3.40e+00`
+
+
+
 ### GO ----- 类型零值和类型别名
 - 类型零值不是空值，而是某个变量被声明后的默认值，一般情况下，默认型的默认值为`0`，布尔型默认值为`false`，string默认值为 空字符串
 - 我们可以对类型设置别名
