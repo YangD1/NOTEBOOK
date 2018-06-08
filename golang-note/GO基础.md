@@ -187,22 +187,75 @@ import (
 尽管变量的标识符(变量名)必须是唯一的，但是你可以在某个代码块的内层代码块中使用相同名称的变量，则此时外部的同名变量将会暂时隐藏（结束内存代码块的执行后隐藏的外部同名变量又会出现，而内部同名变量则被释放）,你任何的操作都只会影响内部代码块的局部变量。
 ```GO
 package main
-import "fmt"
 
-var dee = "yang"
-func saydee(){
-    dee := "dee"
-    fmt.Println(dee)
+var a = "G"
+
+func main() {
+   n()
+   m()
+   n()
 }
-func main(){
-    // string: yang
-    fmt.Println(dee)
-    // string: dee
-    saydee()
+
+func n() { print(a) }
+
+func m() {
+   a := "O"
+   print(a)
 }
+
 /*
-yang
-dee
+GOG
+*/
+```
+
+```GO
+package main
+
+var a = "G"
+
+func main() {
+   n()
+   m()
+   n()
+}
+
+func n() {
+   print(a)
+}
+
+func m() {
+   a = "O"
+   print(a)
+}
+
+/*
+GOO
+*/
+```
+
+```GO
+package main
+
+var a string
+
+func main() {
+   a = "G"
+   print(a)
+   f1()
+}
+
+func f1() {
+   a := "O"
+   print(a)
+   f2()
+}
+
+func f2() {
+   print(a)
+}
+
+/*
+GOG
 */
 ```
 
