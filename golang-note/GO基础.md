@@ -653,5 +653,14 @@ $ go build server.go
 ```
 运行生成的编译文件然后从浏览器访问: `localhost:9090`
 
+上述例子修改`fmt.Fprintf`部分为：
+```GO
+fmt.Fprintf(w,
+                "<h1>Hello world %s!</h1>",
+                r.FormValue("name")) 
+```
+浏览器访问 `localhost:9090?name="youngdee"`
+输出`Hello world youngdee!`
+
 Happly Hacking...
 
