@@ -1,6 +1,11 @@
 参考：
 - [慕课网课程](https://www.imooc.com/learn/968)
 - [the way to go](https://github.com/Unknwon/the-way-to-go_ZH_CN)
+- [搭建并行处理管道，感受GO语言魅力](https://www.imooc.com/learn/927)
+### GO 语言
+- 类型检查：编译时
+- 运行环境：编译成机器代码直接运行
+- 变成范式：面向接口，函数式编程，并发编程
 ### GO 基础语法
 Go 保留的关键字只有25个：
 
@@ -544,5 +549,73 @@ func main(){
 这里是代码块一
 */
 ```
+
+### 一些有用的例子
+1. 判断一个字符串是否为空
+ - `if str == "" {...}`
+ - `if len(str) == 0 {...}`
+2. 判断运行 GO 程序的操作系统类型，这可以通过常量 `runtime.GOOS` 来判断 
+```GO
+if runtime.GOOS == "windows" {
+    . ... 
+} else { // Unix-like
+    . ...
+}
+```
+这段代码一般被放在 init() 函数中执行，示例演示如何根据操作系统来决定输入结束的提示：
+```GO
+var prompt = "Enter a digit, e.g. 3 "+ "or %s to quit."
+ 
+ func init() {
+ 	if runtime.GOOS == "windows" {
+ 		prompt = fmt.Sprintf(prompt, "Ctrl+Z, Enter")		
+ 	} else { //Unix-like
+ 		prompt = fmt.Sprintf(prompt, "Ctrl+D")
+ 	}
+ }
+```
+
+3. 函数 `Abs()` 用于返回一个整型数字的绝对值：
+```GO
+func Abs(x int) int {
+ 	if x < 0 {
+ 		return -x
+ 	}
+ 	return x	
+}
+```
+
+4. `isGreater` 用于比较两个整型数字的大小：
+```GO
+func isGreater(x, y int) bool {
+ 	if x > y {
+ 		return true	
+ 	}
+ 	return false
+}
+```
+if可以包含一个初始化语句(如：给一个变量赋值)。这种写法具有固定的形式（在初始化语句后必须加上分号）:
+```GO
+if initialization; condition {
+    // do something
+}
+```
+例如:
+```GO
+val := 10
+if val > max {
+    // do something
+}
+```
+or:
+```GO
+if val := 10; val > max {
+    // do something
+}
+```
+这种简短方式 `:=` 声明的变量作用域只存在于 if 结构中（在 if 结构的大括号之间，如果使用 `if-else` 结构则在 else 代码块中变量也会存在）。如果变量在 if 结构之前就已经存在，那么在 if 结构中，该变量原来的值会被隐藏。最简单的解决方案就是不要在初始化语句中声明变量。
+
+
+
 Happly Hacking...
 
