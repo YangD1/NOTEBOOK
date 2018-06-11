@@ -662,5 +662,31 @@ fmt.Fprintf(w,
 浏览器访问 `localhost:9090?name="youngdee"`
 输出`Hello world youngdee!`
 
+### 实现排序
+```GO
+package main
+import(
+    "fmt"
+    "sort"
+)
+func main(){
+    //creates a slice of int
+    a := []int{3,6,2,1,9,10,8}
+    sort.Ints(a)
+    for _, v := range a{
+        fmt.Println(v)
+    }
+}
+/*
+1
+2
+3
+6
+8
+9
+10
+*/
+```
+
 Happly Hacking...
 
