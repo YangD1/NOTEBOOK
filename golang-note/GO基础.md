@@ -616,6 +616,42 @@ if val := 10; val > max {
 这种简短方式 `:=` 声明的变量作用域只存在于 if 结构中（在 if 结构的大括号之间，如果使用 `if-else` 结构则在 else 代码块中变量也会存在）。如果变量在 if 结构之前就已经存在，那么在 if 结构中，该变量原来的值会被隐藏。最简单的解决方案就是不要在初始化语句中声明变量。
 
 
+### 实现一个 简单的 Web Server
+server.go:
+```GO
+import (
+    "fmt"
+    "net/http"
+    "strings"
+    "log"
+)
+
+func sayhelloName(w http.ResponseWriter, r *http.Request) {
+    r.ParseForm()  //解析参数，默认是不会解析的
+    fmt.Println(r.Form)  //这些信息是输出到服务器端的打印信息
+    fmt.Println("path", r.URL.Path)
+    fmt.Println("scheme", r.URL.Scheme)
+    fmt.Println(r.Form["url_long"])
+    for k, v := range r.Form {
+        fmt.Println("key:", k)
+        fmt.Println("val:", strings.Join(v, ""))
+    }
+    fmt.Fprintf(w, "<h1>Hello world!</h1>") //这个写入到w的是输出到客户端的
+}
+
+func main() {
+    http.HandleFunc("/", sayhelloName) //设置访问的路由
+    err := http.ListenAndServe(":9090", nil) //设置监听的端口
+    if err != nil {
+        log.Fatal("ListenAndServe: ", err)
+    }
+}
+```
+之后运行：
+```shell
+$ go build server.go
+```
+运行生成的编译文件然后从浏览器访问: `localhost:9090`
 
 Happly Hacking...
 
