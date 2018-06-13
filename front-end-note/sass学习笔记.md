@@ -42,5 +42,5 @@ sass --watch input.scss:output.css
 ```
 sass --watch app/sass:public/stylesheets
 ```
-
+使用 `sass --help` 可以列出完整的帮助文档。
 
