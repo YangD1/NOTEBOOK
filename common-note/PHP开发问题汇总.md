@@ -29,3 +29,6 @@ ALTER TABLE `users`
     CHANGE created_at created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     CHANGE updated_at updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL;
 ```
+
+### VUE 不渲染数据到页面上
+注意自己是不是把选择的element选成了类似body这样的标签，这样的标签不能成功绑定渲染。
