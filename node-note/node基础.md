@@ -195,7 +195,9 @@ function foo2(value, callback1, callback2){ }
 
 ### 阻塞代码示例
 创建一个文件 input.txt ，内容如下：
-`learn Node`
+```
+learn Node
+```
 创建 main.js 文件，代码如下：
 ```javascript
 var fs = require("fs");
@@ -215,7 +217,9 @@ end!
 
 ### 非阻塞代码实例
 创建一个文件 input.txt ，内容如下：
-`learn Node`
+```
+learn Node
+```
 创建 main.js 文件，代码如下：
 ```javascript
 var fs = require("fs");
