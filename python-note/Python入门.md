@@ -1,6 +1,6 @@
 # Python 基础
-[官网](www.python.org)
-[官方文档](docs.python.org)
+[官网](https://www.python.org)
+[官方文档](https://docs.python.org)
 
 编程功底的最好体现是数据结构。
 
@@ -20,10 +20,10 @@ Python 分为解释器，扩展标准库
 - 胶水语言：混合其他语言来编程
 
 ### 进制转换
-- bin() 用于进制转换成二进制
-- int() 转换十进制
-- hex() 转换十六进制
-- oct() 转换八进制
+- `bin()` 用于进制转换成二进制
+- `int()` 转换十进制
+- `hex()` 转换十六进制
+- `oct()` 转换八进制
 
 ### Bool 类型
 Python 中的布尔类型要大写
