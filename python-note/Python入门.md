@@ -41,7 +41,7 @@ Python 的 Bool 类型是*数字类型*
 
 输出一个原始字符串:
 ```python
-// 使用 r 来声明原始字符串
+# 使用 r 来声明原始字符串
 print(r"hello /n world")
 ```
 
@@ -50,40 +50,40 @@ print(r"hello /n world")
 "hello" + "world"
 >> helloworld
 
-// * 号后面的必须是数字
+# * 号后面的必须是数字
 "hello" * 3
 >> hellohellohello
 
-// 输出第一个下标为0的字符
+# 输出第一个下标为0的字符
 "hello world"[0]
 >> h
 
-// 输出第四个下标为3的字符
+# 输出第四个下标为3的字符
 "hello world"[3]
 >> l 
 
-// 从末尾往开头，不再代表下标而代表步长
+# 从末尾往开头，不再代表下标而代表步长
 "hello world"[-3]
 >> r
 
-// 方括号中第一个数字代表起始位置，第二个数字代表步长
+# 方括号中第一个数字代表起始位置，第二个数字代表步长
 "hello world"[0:4]
 >> hell
 
-// 从下标为0的字符串开始取到最后一个下标前面的字符
+# 从下标为0的字符串开始取到最后一个下标前面的字符
 "hello world"[0:-1]
 >> hello worl
 
-// 从下标为6的字符开始取值到结束
+# 从下标为6的字符开始取值到结束
 "hello world"[6:]
 >> world
 
-// 两种步长设定的方法
+# 两种步长设定的方法
 "hello world"[0:-4]
 "hello world"[:-4]
 >> hello w
 
-// 截取后五个字符
+# 截取后五个字符
 "hello world"[-5:]
 >> hello
 ```
@@ -96,12 +96,12 @@ print(r"hello /n world")
 print(type([1,2,3,4,5,6]))
 >> class 'list'
 
-// 再诸如:
-// 混合数据列表
+# 再诸如:
+# 混合数据列表
 ["hello","world",1,9,True,False]
-// 嵌套列表
+# 嵌套列表
 [[1,2],["hello","world"],[True,False]]
-// 列表拼接
+# 列表拼接
 [1,2,3]+[4,5,6]
 >> [1,2,3,4,5,6]
 ```
@@ -126,21 +126,21 @@ print(type([1,2,3,4,5,6]))
 例如：
 ```python
 (1,2,3,4)
-// 取下标为0的元组成员
+# 取下标为0的元组成员
 (1,2,3,4)[0]
 >> 1
 ```
 
-#### 元祖的特性
-- 元祖是不可变的，而列表是可变的
-- 元祖通常由不同数据，而列表是相同类型的数据队列
-- 元祖标示的是结构，而列表表示的是顺序
+#### 元组的特性
+- 元组是不可变的，而列表是可变的
+- 元组通常由不同数据，而列表是相同类型的数据队列
+- 元组标示的是结构，而列表表示的是顺序
 
 例如把元组理解进棋盘中，一对元组代表一个点
 ```python
-// 表示一个点
+# 表示一个点
 point = (1,2)
-// 表示一个系列点
+# 表示一个系列点
 point = [(1,2),(1,3),(4,5)]
 ```
 元组支持的操作比列表小，元组故所以相对列表更快
@@ -162,10 +162,10 @@ point = [(1,2),(1,3),(4,5)]
 一个集合不可以有重复的元素，重复的元素会被覆盖合并
 
 ```python
-// 计算两组集合的差集
+# 计算两组集合的差集
 {1,2,3,4,5} - {3,4}
 >> {1,2,5}
-// 计算两组集合的交集
+# 计算两组集合的交集
 {1,2,3,4,5} & {3,4}
 >> {3,4}
 ```
@@ -201,7 +201,7 @@ A = [1,2,3,4,5,6]
 id() 显示某一个变量在内存中的地址
 ```python
 b = [1,2,3]
-// 列表变量追加，元组不知此这个操作
+# 列表变量追加，元组不知此这个操作
 b.append(4)
 >> [1,2,3,4]
 ```
@@ -251,6 +251,7 @@ b.append(4)
 比较两个变量身份(内存地址) 是否相等
 
 #### 位运算符
+把数字当成二进制数进行运算
 - `&` 按位与
 - `|` 按位或
 - `^` 按位异或
@@ -258,5 +259,134 @@ b.append(4)
 - `<<` 左移动
 - `>>` 右移动
 
+### python 如何区分代码块
+python 使用缩进来控制代码块，不同于一般代码的 `{ do...something... }`
 
+### 条件控制
+`if else`
 
+```python
+mood = True
+if mood:
+    print('go to left')
+else:
+    print('go to right')
+
+>> go to left
+```
+
+简单定义一个用户登录输入账号密码验证:
+```python
+account = 'youngdee'
+password = '123456'
+
+print('请输入账号:')
+user_account = input()
+print('请输入密码:')
+user_password = input()
+
+if account == user_account and password  == user_password:
+    print('登录成功')
+else:
+    print('登录失败')
+
+```
+
+`if`语句可以单独使用
+
+嵌套使用：
+```python
+# 普通的嵌套
+if condition:
+    if condition:
+        pass
+    else:
+        pass
+else:
+    if condition:
+        pass
+    else:
+        pass
+
+# 使用 elif 嵌套
+if condition:
+    pass
+elif conditin:
+    pass
+else:
+    pass
+```
+
+python 中没有 switch，官方推荐使用`elif`代替，或者使用字典的方式来代替switch
+
+### 循环语句
+`while` `for`
+
+`while`(递归的时候常用到)
+```python
+while condition:
+    pass
+
+# 示例
+counter = 1
+while counter <= 10: 
+    counter += 1 
+    print(counter)
+else:
+    # 程序结束后才运行这里的语句
+    print("EOF")
+>> 2 
+>> 3
+...
+>> 11
+>> EOF
+```
+
+`for` (主要用来遍历/循环 序列或者集合/字典)
+```python
+# 基础使用
+a  = ['apple','orange','banana','grape']
+for x in a:
+    print(x)
+
+# 遍历复杂数据,嵌套循环
+a  = [['apple','orange','banana','grape'],(1,2,3)]
+for x in a:
+    for y in x:
+        # end="" 每次输出结束后输出一个定义的字符串 
+        print(y,end=" | ")
+else:
+    # 当列表中所有元素遍历完了之后执行
+    print('fruit is gone')
+
+>> apple | orange | banana | grape | 1 | 2 | 3 | fruit is gone
+```
+在循环中可以使用`continue`和`break`来执行响应逻辑的循环的跳出/终止
+
+#### range(起始位置,偏移量,步长)
+```python
+for x in range(0,10):
+    print(x,end=" ")
+
+>> 0 1 2 3 4 5 6 7 8 9
+
+for x in range(0,10,2):
+    print(x,end=" ")
+
+>> 0 2 4 6 8
+
+for x in range(10,0,-2):
+    print(x,end=" ")
+>>  10 8 6 4 2
+
+# 输出下面列表中的奇数
+a = [1,2,3,4,5,6,7,8]
+for i in range(0,len(a),2):
+    print(a[i],end=' | ')
+
+>> 1 | 3 | 5 | 7
+
+# 用数列的切片来实现上面
+b  = a[0:len(a):2]
+>> 1 | 3 | 5 | 7
+```
