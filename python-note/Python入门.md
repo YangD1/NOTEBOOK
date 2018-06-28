@@ -367,12 +367,10 @@ else:
 ```python
 for x in range(0,10):
     print(x,end=" ")
-
 >> 0 1 2 3 4 5 6 7 8 9
 
 for x in range(0,10,2):
     print(x,end=" ")
-
 >> 0 2 4 6 8
 
 for x in range(10,0,-2):
@@ -383,10 +381,27 @@ for x in range(10,0,-2):
 a = [1,2,3,4,5,6,7,8]
 for i in range(0,len(a),2):
     print(a[i],end=' | ')
-
 >> 1 | 3 | 5 | 7
 
 # 用数列的切片来实现上面
 b  = a[0:len(a):2]
 >> 1 | 3 | 5 | 7
 ```
+
+### Python 工程的组织结构： 包 模块 类(函数，变量)
+Python 中包的名字等同于目录的名字,模块等同于目录下的文件,包的下面也可以包含一个包可以有平级的模块,包目录下必须包含一个`__init__.py`文件。
+> python 一切都是面向对象
+
+区分不同包两个相同的模块：Pone.c4 Ptwo.c4
+
+`import MODULE_NAME` 导入模块(只能导入到模块,不能导入到类或者模块中的成员)
+
+`import MODULE_NAME as m` 可以这样来简化命名空间
+
+`from MODULE_NAME import a` 这样调用可以直接使用模块中的成员a
+
+`from MODULE_NAME import *` 这样调用可以直接使用模块中的所有成员
+
+在模块中定义内置属性`__all__`列成列表可以定义要被import导出的变量
+
+
