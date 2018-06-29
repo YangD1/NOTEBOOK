@@ -398,10 +398,97 @@ Python 中包的名字等同于目录的名字,模块等同于目录下的文件
 
 `import MODULE_NAME as m` 可以这样来简化命名空间
 
-`from MODULE_NAME import a` 这样调用可以直接使用模块中的成员a
+`from MODULE_NAME import a` 这样调用可以直接使用模块中的成员a,多个成员可以用`,`来分割
 
 `from MODULE_NAME import *` 这样调用可以直接使用模块中的所有成员
 
 在模块中定义内置属性`__all__`列成列表可以定义要被import导出的变量
+
+#### `__init__.py` 的用法
+导入一个包或者模块后会自动导入`__init__.py`文件，其中可以使用`__all__`变量来批量导入需要的模块
+
+#### 包和模块是不会被重复导入的
+- 但是要避免循环导入(两个模块相互导入)
+- 模块导入的时候就会执行导入文件一次
+
+#### Python 模块内置变量
+`dir()` 函数可以打印出当前模块所有可用的变量
+- `__name__` 当前模块的完整命名空间
+- `__package__` 当前模块所属的包
+- `__file__` 当前模块的本地目录路径
+- `__doc__` 当前模块的注释内容(一般出现在模块的头部`''' 注释内容 '''`)
+
+### 函数
+示例:
+- `print()`
+- `round()`
+
+#### 函数的定义及特点
+函数定义：
+```python
+def funcname(parameter_list):
+    pass
+```
+1. 参数可以没有
+2. return value None
+
+函数调用:
+```python
+# 定义:
+def add():
+    pass
+# 调用：
+add()
+    
+```
+函数代码内部遇到`return`之后将不会往后执行
+
+```python
+# 函数返回多个结果
+def damage(skill1, skill2):
+    damage1 = skill1 * 3
+    damage2 = skill1 * 2 + 10 
+    #  返回一个元组
+    return damage1, damage2
+    
+damages = damage(3,6)
+print(type(damages))
+# 改变函数回调参数的接收方式,这种方式叫作：序列解包
+skill1_mamage, skill2_damage = damage(3,6)
+print(skill1_mamage, skill2_damage)
+```
+
+### 序列解包
+```python
+a = 1
+b = 2
+c = 3
+a,b,c = 1,2,3
+# 和上面一样都是序列解包
+a,b,c, = [1,2,3]
+
+# 同时给三个变量赋值
+a=b=c=1
+```
+
+### 函数参数 
+1. 必须参数
+2. 关键字参数，定义了多少个形式参数(形参)就要传入多少个实际参数(实参)
+3. 默认参数,在形参后面添加等号来赋值: `def print_student_files(name, age="17", like="game")`. 有默认值的形参可以在函数调用的时候忽略实参的传入，默认参数后不可以声明必须参数，如果要跳着改变某些默认参数，可以在传入实参的时候填写对应的默认参数名 `print_student_files('youngdee',like="code")`
+4. 可变参数: 用 `*` 声明函数的可变参数 `def demo(*param)` 如果想传递一个元组/列表到可变参数并且返回的不是二维元组/列表，可以在函数参数传入的列表/元组前加入 `*` 来解包我们的参数，如果要接受一个关键字可变参数，函数声明方式是: 声明`def demo(**param)` 使用(如果方法传入的是变量需要`**`)`demo(**param)`.可变参数可以什么都不传入
+
+> 尽可能的保证函数列表的形参简单易用
+
+> 延伸：在for循环的时候循环调用字典需要使用字典的内置方法 `items()`
+```python
+for key,value in param.items():
+    print(key,":",value)
+```
+
+### 变量作用域
+> 在 for 循环的外部 可以引用 for 循环内部的变量,for循环中的变量直接声明后返回到外部
+> `golobal` 声明全局变量
+
+
 
 
