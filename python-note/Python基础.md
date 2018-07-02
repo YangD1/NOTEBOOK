@@ -487,8 +487,140 @@ for key,value in param.items():
 
 ### 变量作用域
 > 在 for 循环的外部 可以引用 for 循环内部的变量,for循环中的变量直接声明后返回到外部
+
 > `golobal` 声明全局变量
 
+### 面向对象
+定义一个类: 
+```python
+class Student():
+    name = 'YoungDee'
+    age = '24' 
 
+    # self 来调用类自己的属性和方法
+    def print_file(self):
+        print('name:'+self.name)
+        print('age:'+self.age)
+       
+# 实例化对象
+student  = Student() 
+student.print_file()
 
+# 结果
+>> name: YoungDee
+>> age: 24 
+```
 
+### 构造函数
+定义一个构造函数：
+```python
+def __init__(self):
+    # 构造函数
+    pass
+```
+类不需要一定声明一个构造函数
+
+> 注意这里如果要在构造函数中初始化类的成员（变量），重新定义类成员（变量）的时候记得带上 `self` 
+
+### self
+self 代表类的实例，而非类:
+
+self 代表的是类的实例，代表当前对象的地址，而 self.class 则指向类
+
+类的方法与普通的函数只有一个特别的区别，它们必须有一个额外的第一个参数名称，按照惯例它的名称是`self`，但是不需要使用这个类的方法时定义这个方法参数
+
+`self` 不是 python 的关键字，可以是任何名称（一般建议使用 `self`）:
+```python
+# 这里的 this 和 self 用法一样指的是实例本身
+def createUser(this):
+    pass
+```
+### 从实例内部访问类变量:
+```python
+class Student():
+    name = "Mona"
+    def __init__(self):
+        # 使用__class__类变量访问
+        print(self.__class__.name)
+```
+
+### 实例方法
+定义一个实例方法：
+```python
+class Student():
+    name = "Mona"
+
+    # 构造函数
+    def __init__(self):
+        print(self.__class__.name)
+    # 实例方法
+    def createStudent(self):
+        print("success created")
+
+s1 = Student()
+s1.createStudent()
+```
+
+### 类方法
+定义一个类方法:
+```python
+# 一定要有 @classmethod 这个类方法装饰器来声明
+@classmethod
+def createPlus(cls):
+    # 这里的cls和self一样，不是关键字，可以定义成任何一种名称，但是这个变量代表类的本身
+    pass
+```
+
+在 python 中对象可以直接调用类方法（但不建议这么做）。
+
+### 静态方法
+定义一个静态方法：
+```python
+# 一定要有 @staticmethod 这个静态方法装饰器来声明
+@staticmethod
+def add():
+    print
+```
+- 静态方法不需要强制声明一个变量来指代类或者对象本身。
+- 静态方法内部可以访问类变量。
+- 静态方法相对于类方法少了个必须声明变量来跟类关联。
+
+### 面向对象的成员可见性
+- 默认的类成员的可见性是公开的（public）
+- 使用 `__` 双下划线表示私有的（private）
+- 使用 `__score` 声明的私有变量其实不是类内部的那个私有变量，如果在外部用对象访问私有变量会直接报错，在外部设置的私有变量只是声明了一个新的变量，同名也不会互相影响。
+如果在外部使用对象重新声明了一个与类的私有变量同名的变量，python将自动重命名自己的类内部的私有变量`_TheClass__score`。
+- python 没有严格的机制来阻止访问私有变量，如上情况可以直接使用对象访问`_TheClass__score`来访问私有变量。
+
+### 继承
+面向对象的3大特性：
+1. 继承性
+2. 封装性
+3. 多态性
+
+实现一个父类的继承：
+```python
+from oop import Human 
+# 让 Student 继承了 Human 父类
+class Student(Human):
+    pass
+```
+- 子类继承父类的类变量和方法，包括父类的构造函数。
+- python 支持多继承，支持多个父类
+- 子类可以再被继承，形成一个继承链
+- 继承扩展父类的构造函数：
+```python
+
+from oop import Human 
+# 假设 Human 父类的构造函数内容是 __init__(self,name,age)
+# 让 Student 继承了  父类
+class Student(Human):
+    def __init__(self,school,name,age):
+        # 执行区别于父类的操作
+        self.school = school
+        # 再执行父类的构造函数,这边的 self 必须传入
+        # Human.__init__(self,name,age)
+        # 或者使用(推荐,这样更加灵活，如果重命名了父类名称也不会影响到代码的内部实现)
+        super(Student, self),__init__(name, age)
+```
+- 子类和父类同名的方法在实例化子类对象的时候，对象访问的是子类定义的方法
