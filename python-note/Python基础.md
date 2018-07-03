@@ -834,3 +834,103 @@ print(json_str)
 
 JSON 非常 pay REST
 
+### Python 的高级语法与用法
+数字代表数据的方式极大的破坏了代码的可阅读性
+#### 在python中枚举类型是一个类 
+定义一个枚举：
+```python
+from enum import Enum
+
+class VIP(Enum):
+    YELLOW = 1
+    GREEN = 2 
+    BLACK = 3 
+    RED = 4 
+
+print(VIP.YELLOW)
+
+# >> VIP.YELLOW
+```
+
+#### 枚举和普通类相比有什么优势
+相比列表和普通类，枚举不会轻易改变，枚举具有防止相同标签的能力
+
+#### 枚举类型，枚举名称，枚举值
+获取枚举的值
+```python
+from enum import Enum
+class VIP(Enum):
+    YELLOW = 1
+    GREEN = 2 
+    BLACK = 3 
+    RED = 4 
+
+print(VIP.YELLOW.value)
+# >> 1
+print(VIP.YELLOW.name)
+# >> YELLOW
+
+print(type(VIP.YELLOW.name))
+# >> <class 'str'>
+
+# 一个枚举的本身就是枚举类型 enum
+print(type(VIP.YELLOW))
+# >> <enum 'VIP'>
+
+# 用 for 循环来遍历 枚举
+for v in VIP:
+    print(v)
+```
+
+#### 枚举的比较运算
+枚举类型只能进行等值比较
+
+#### 枚举注意事项
+枚举中，相同值不同名称的枚举，后一个将成为前一个的别名，不会看做是单独的枚举
+
+遍历所有的枚举，包括成为别名的枚举：
+```python
+for v in VIP.__members__.items():
+    print(v)
+
+# 得到的结果是个元组，包括枚举标签名称和值对
+# 去除 items() 函数 遍历的结果只会显示枚举标签 
+```
+
+#### 枚举转换
+```python
+from enum import Enum
+class VIP(Enum):
+    YELLOW = 1
+    GREEN = 2 
+    BLACK = 3 
+    RED = 4 
+
+a = 1
+# 转换成枚举，VIP 是一个枚举
+print(VIP(a))
+
+# >> VIP.YELLOW
+```
+
+#### Int枚举
+```python
+from enum import IntEnum
+class VIP(IntEnum):
+    # 枚举只能允许是 INT 类型的值
+    pass
+```
+
+#### 不允许有相同值的枚举
+```python
+from enum import IntEnum,unique
+@unique
+class VIP(IntEnum):
+    # 枚举只能允许是 INT 类型的值
+    # 不允许枚举有相同值
+    pass
+```
+
+#### 枚举类型
+python 枚举是单例模式，不可以实例化
+
