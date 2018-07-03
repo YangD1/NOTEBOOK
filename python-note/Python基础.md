@@ -48,44 +48,44 @@ print(r"hello /n world")
 #### 字符串可以使用运算符
 ``` python
 "hello" + "world"
->> helloworld
+# >> helloworld
 
 # * 号后面的必须是数字
 "hello" * 3
->> hellohellohello
+# >> hellohellohello
 
 # 输出第一个下标为0的字符
 "hello world"[0]
->> h
+# >> h
 
 # 输出第四个下标为3的字符
 "hello world"[3]
->> l 
+# >> l 
 
 # 从末尾往开头，不再代表下标而代表步长
 "hello world"[-3]
->> r
+# >> r
 
 # 方括号中第一个数字代表起始位置，第二个数字代表步长
 "hello world"[0:4]
->> hell
+# >> hell
 
 # 从下标为0的字符串开始取到最后一个下标前面的字符
 "hello world"[0:-1]
->> hello worl
+# >> hello worl
 
 # 从下标为6的字符开始取值到结束
 "hello world"[6:]
->> world
+# >> world
 
 # 两种步长设定的方法
 "hello world"[0:-4]
 "hello world"[:-4]
->> hello w
+# >> hello w
 
 # 截取后五个字符
 "hello world"[-5:]
->> hello
+# >> hello
 ```
 
 ### 列表 list
@@ -94,7 +94,7 @@ print(r"hello /n world")
 一个简单的列表：`[1,2,3,4,5,6]`
 ```python
 print(type([1,2,3,4,5,6]))
->> class 'list'
+# >> class 'list'
 
 # 再诸如:
 # 混合数据列表
@@ -103,19 +103,23 @@ print(type([1,2,3,4,5,6]))
 [[1,2],["hello","world"],[True,False]]
 # 列表拼接
 [1,2,3]+[4,5,6]
->> [1,2,3,4,5,6]
+
+# >> [1,2,3,4,5,6]
 ```
 
 #### 判断是否在列表中：
 ```python
 3 in [1,2,3,4]
->> True
+
+# >> True
 
 10 in [1,2,3,4]
->> False
+
+# >> False
 
 3 not in [1,2,3,4]
->> False
+
+# >> False
 ```
 
 ### 元组 tuple
@@ -128,7 +132,8 @@ print(type([1,2,3,4,5,6]))
 (1,2,3,4)
 # 取下标为0的元组成员
 (1,2,3,4)[0]
->> 1
+
+# >> 1
 ```
 
 #### 元组的特性
@@ -164,10 +169,10 @@ point = [(1,2),(1,3),(4,5)]
 ```python
 # 计算两组集合的差集
 {1,2,3,4,5} - {3,4}
->> {1,2,5}
+# >> {1,2,5}
 # 计算两组集合的交集
 {1,2,3,4,5} & {3,4}
->> {3,4}
+# >> {3,4}
 ```
 
 ### 字典 dict
@@ -203,7 +208,7 @@ id() 显示某一个变量在内存中的地址
 b = [1,2,3]
 # 列表变量追加，元组不知此这个操作
 b.append(4)
->> [1,2,3,4]
+# >> [1,2,3,4]
 ```
 
 ### 运算符号 (记录个别)
@@ -272,7 +277,7 @@ if mood:
 else:
     print('go to right')
 
->> go to left
+# >> go to left
 ```
 
 简单定义一个用户登录输入账号密码验证:
@@ -335,11 +340,11 @@ while counter <= 10:
 else:
     # 程序结束后才运行这里的语句
     print("EOF")
->> 2 
->> 3
+# >> 2 
+# >> 3
 ...
->> 11
->> EOF
+# >> 11
+# >> EOF
 ```
 
 `for` (主要用来遍历/循环 序列或者集合/字典)
@@ -359,7 +364,7 @@ else:
     # 当列表中所有元素遍历完了之后执行
     print('fruit is gone')
 
->> apple | orange | banana | grape | 1 | 2 | 3 | fruit is gone
+# >> apple | orange | banana | grape | 1 | 2 | 3 | fruit is gone
 ```
 在循环中可以使用`continue`和`break`来执行响应逻辑的循环的跳出/终止
 
@@ -367,25 +372,25 @@ else:
 ```python
 for x in range(0,10):
     print(x,end=" ")
->> 0 1 2 3 4 5 6 7 8 9
+# >> 0 1 2 3 4 5 6 7 8 9
 
 for x in range(0,10,2):
     print(x,end=" ")
->> 0 2 4 6 8
+# >> 0 2 4 6 8
 
 for x in range(10,0,-2):
     print(x,end=" ")
->>  10 8 6 4 2
+# >>  10 8 6 4 2
 
 # 输出下面列表中的奇数
 a = [1,2,3,4,5,6,7,8]
 for i in range(0,len(a),2):
     print(a[i],end=' | ')
->> 1 | 3 | 5 | 7
+# >> 1 | 3 | 5 | 7
 
 # 用数列的切片来实现上面
 b  = a[0:len(a):2]
->> 1 | 3 | 5 | 7
+# >> 1 | 3 | 5 | 7
 ```
 
 ### Python 工程的组织结构： 包 模块 类(函数，变量)
@@ -507,8 +512,8 @@ student  = Student()
 student.print_file()
 
 # 结果
->> name: YoungDee
->> age: 24 
+# >> name: YoungDee
+# >> age: 24 
 ```
 
 ### 构造函数
@@ -624,3 +629,208 @@ class Student(Human):
         super(Student, self),__init__(name, age)
 ```
 - 子类和父类同名的方法在实例化子类对象的时候，对象访问的是子类定义的方法
+
+### 正则表达式
+基础使用:
+```python
+# 引入python正则表达式的包
+import re
+a = "匹配的内容"
+re.findall('匹配的内容',a)
+```
+
+搜索字符串中所有的数字
+```python
+import re
+a = 'C0C++7Java8C#9Python6Javascript'
+r = re.findall('\d',a)
+print(r)
+# >> ['0', '7', '8', '9', '6'] 
+```
+
+- 一般常量正则匹配，匹配的常量叫作 `普通字符`。
+- 上面的 `/d` 代表 `元字符`, [元字符列表](http://www.runoob.com/regexp/regexp-metachar.html)
+- 根据匹配规则上述两种可以混合使用
+
+#### 字符集匹配:
+```python
+# 匹配a和c中间字符是c或者是f的字符串
+s = 'abc,acc,adc,aec,afc,ahc'
+# [] 中间放入字符集来匹配需要的字符,字符集中的字符是或的关系
+r = re.findall('a[cf]c',s)
+print(r)
+
+# 匹配a和c之间不是 c 或 f 的字符
+r = re.findall('a[^cf]c',s)
+print(r)
+
+# 匹配a和c之间，是c到f的字符，字符集是或关系
+r = re.findall('a[c-f]c',s)
+print(r)
+```
+
+#### 概括字符集
+例如代表数字的 `\d`等同于`[0-9]`,代表非数字的 `\D` 等同于 `[^0-9]`,非符号字符集 `\w` 等同于 `[A-Za-z0-9_]`,符号字符集`\W` 等同于 `[^A-Za-z0-9_]` 符号字符集包括 `\n` `\t`, `\s` 代表空白字符集，`\S`代表非空白字符集, `.` 匹配换行符 \n 之外的其他所有字符
+
+#### 数量词
+```python
+import re
+a = 'python 1111java678php'
+
+# 匹配三个a-z的字符
+r = re.findall('[a-z]{3}',a)
+print(r)
+
+# >> ['pyt', 'hon', 'jav', 'php']
+
+# 匹配完整的单词，根据单词的最小和最大长度来写数量词
+# a 字符串中最小字符长度是php的3,最长是python的6
+r = re.findall('[a-z]{3,6}',a)
+print(r)
+
+# >> ['python', 'java', 'php']
+```
+
+#### 贪婪与非贪婪
+- 默认情况下python采用的贪婪方式来进行匹配
+- 在数量词后面加入`?`则是非贪婪匹配模式,例如： 
+```python
+# 非贪婪匹配
+import re
+a = 'python 1111java678php'
+r = re.findall('[a-z]{3,6}?',a)
+print(r)
+
+# >> ['pyt', 'hon', 'jav', 'php']
+```
+
+#### 匹配0次1次或无限多次
+- `*` 匹配 0 次或无限多次
+- `+` 匹配 1 次或无限多次
+- `?` 匹配 0 次或 1 次
+
+#### 边界匹配符
+- `^`开始-结束`$`, `^` 匹配起始往右的内容，`$`匹配结束向左的内容
+匹配正确的4-8位的qq号
+```python
+import re
+qq = '100000001'
+# 4-8 才是 qq 号的合理数字区间
+r = re.findall('/d{4,8}',qq)
+print(r)
+
+# 并没有完整匹配 
+# >> ['10000000']
+
+r = re.findall('^\d{4,8}$',qq)
+print(r)
+
+# qq并不是合理的qq号
+# >> []
+```
+
+#### 匹配模式参数
+```python
+import re
+language = 'PythonC#JavaPHP'
+# 下面第三个参数就是 匹配模式参数 用 | 来分割加入匹配模式
+r = re.finall('c#',language,re.I | re.S)
+```
+
+#### re.sub 正则替换
+```python
+import re
+language = 'PythonC#JavaC#PHPC#'
+# 这里的 0 代表匹配所有的都替换，替换别的数字将会按顺序按数量替换
+r = re.sub('C#','GO',language,0)
+print(r)
+
+# >> PythonGOJavaGOPHPGO
+```
+把函数作为参数传递
+```python
+# 实现字符串中大于等于6的数字统一替换成9
+s = 'A8C3721D86'
+def convert(value):
+    matched = value.group()
+    if int(matched) >= 6:
+        return str(9)
+    else: 
+        return str(0)
+
+r = re.sub('\d',convert,s)
+print(r)
+
+# >> A9C0900D99
+```
+
+#### 正则匹配常用函数
+- `re.match()` 从字符串首字开始处开始匹配,满足条件返回一个对象
+- `re.search()` 搜索整个字符串，直到找到了字符串返回一个对象
+- `re.findall()` 不同于上面只匹配一次，findall可以控制返回结果，并且可以返回所有结果
+
+#### group 分组
+- 获取分组的匹配
+- group(0) 标示正则表达式的完整结果
+```python
+import re
+s = 'life is short,i use python'
+r = re.search('life(.*)python',s)
+print(r.group(1))
+# >>  is short,i use
+
+print(r.group(0))
+# >> life is short,i use python
+
+# 下面将返回一个元组结果
+print(r.group(0,1))
+# >> ('life is short,i use python', ' is short,i use ')
+```
+
+### 理解 JSON
+JavaScript Object Notation，中文为 JavaScript 对象标记
+
+#### 什么是 JSON
+- 是一种轻量级的 **数据交换格式**
+- JSON 是一种数据格式
+- 字符串是 JSON 的表现形式
+- 符合 JSON 格式的字符串叫做 JSON 字符串
+- JSON 的字符串表现形式 `{"name":"YoungDee"}` 很像 Python 中的字典
+
+#### JSON 的优点
+- 易于阅读
+- 易于解析
+- 网络传输效率高
+- 跨语言交换数据
+
+#### 反序列化
+```python
+import json
+json_str = '{"name":"youngdee", "age": 24}'
+# 被反序列化成了json的字典
+student = json.loads(json_str)
+print(type(student))
+print(student)
+
+# >> <class 'dict'>
+# >> {'name': 'youngdee', 'age': 24}
+```
+
+#### 序列化
+```python
+import json
+# 序列化
+student = [
+    {'name': 'YoungDee', 'age': 24, 'flag': False},
+    {'name': 'Mona', 'age': 18}
+]
+json_str = json.dumps(student)
+print(type(json_str))
+print(json_str)
+
+# >> <class 'str'>
+# >> [{"name": "YoungDee", "age": 24, "flag": false}, {"name": "Mona", "age": 18}]
+```
+
+JSON 非常 pay REST
+
