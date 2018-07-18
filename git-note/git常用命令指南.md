@@ -13,3 +13,12 @@ push -f
 git fetch origin master
 ```
 检测远程分支有更新后，合并远程分支更新或者解决冲突即可 `git merge origin/master`
+### git 如何从仓库中删除已经被跟踪的文件
+取消跟踪一个文件
+```
+git rm --cached 文件名
+```
+取消跟踪一个目录
+```
+git rm --cached -r 目录
+```
