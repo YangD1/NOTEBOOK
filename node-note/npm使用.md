@@ -96,3 +96,17 @@ Email: YOUR_EMAIL@domain.com
 
 网址后面跟上模块名，就会得到一个 JSON 对象，里面是该模块所有版本信息，例如访问[https://registry.npmjs.org/react](https://registry.npmjs.org/react) 就会看到 react 模块所有版本的信息。
 
+
+### 更新全局包
+更新全局包命令`npm install -g <package>`
+```
+npm isntall -g jshint
+```
+查找过期包
+```
+npm outdated -g --depth=0
+```
+更新所有全局包
+```
+npm update -g
+```
