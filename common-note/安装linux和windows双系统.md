@@ -1,0 +1,1 @@
+使用eazyBCD来引导linux,先安装windows ，再安装linux 发行版系统
