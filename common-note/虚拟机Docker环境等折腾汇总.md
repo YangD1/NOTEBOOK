@@ -34,3 +34,23 @@ $ sudo VBoxLinuxAdditions.run
 关闭 Hyper-V
 
 ![](images/jietu.png)
+
+### MACOS 新装 docker 使用映射到本地 80 端口的容器，导致重启后无法启动？
+这个问题导致的原因是macos自带的apache会占用80端口，自然会影响到容器的启动，删除macos自带的即可
+```
+# 停止apache
+sudo apachectl stop
+# 删除apache相关的目录
+sudo rm -rf /etc/apache2
+sudo rm -rf /usr/include/apahce2
+sudo rm -rf /usr/libexec/apache2
+
+# 如果需要，也可以继续删除php，目录如下
+/usr/php
+/usr/bin/php
+/usr/bin/php-config
+/usr/bin/phpize
+/usr/include/php
+/usr/lib/php
+/usr/share/man/man*/php*
+```
