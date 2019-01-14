@@ -1,1 +1,1 @@
-[GO](https://github.com/YoungDeeZH/note/issues)
+# [GO](https://github.com/YoungDeeZH/note/issues)
